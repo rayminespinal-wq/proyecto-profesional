@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi portafolio personal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Estilos.css">
+</head>
+<body>
+<div class="pagina">
+
+  <!-- 1. ENCABEZADO + 2. IMAGEN PERSONAL (tarjeta de perfil fija a la izquierda) -->
+  <header class="perfil" id="inicio">
+    <figure class="perfil__foto">
+      <img src="foto.jpg" alt="Foto de medio cuerpo de Raymin Missael Espinal Ramirez" id="fotoPersonal" width="320" height="400">
+    </figure>
+
+    <div class="perfil__texto">
+      <p class="perfil__etiqueta">Proyecto Personal</p>
+      <h1>Raymin Missael Espinal Ramirez</h1>
+      <p class="perfil__rol"><span id="rolTexto">Estudiante de desarrollo web</span><span class="cursor" aria-hidden="true"></span></p>
+      <p class="perfil__lugar">📍 Barahona, República Dominicana</p>
+    </div>
+
+    <div class="perfil__acciones">
+      <button class="boton boton--fantasma" id="btnTema" type="button" aria-pressed="false">Cambiar a modo oscuro</button>
+      <button class="boton boton--fantasma" id="btnColor" type="button">Cambiar color</button>
+    </div>
+  </header>
+
+  <div class="derecha">
+
+    <!-- 3. MENÚ DE NAVEGACIÓN (pestañas) -->
+    <nav class="pestanas" id="menu" aria-label="Navegación principal">
+      <button type="button" class="activo" data-panel="bienvenida">Inicio</button>
+      <button type="button" data-panel="sobre-mi">Sobre mí</button>
+      <button type="button" data-panel="habilidades">Habilidades</button>
+      <button type="button" data-panel="contacto">Contacto</button>
+    </nav>
+
+    <main>
+
+      <!-- PANEL: INICIO -->
+      <section class="panel visible" id="bienvenida">
+        <p class="panel__etiqueta">Bienvenido</p>
+        <h2 id="tituloBienvenida">Hola, bienvenido a mi página</h2>
+        <p>
+          Aquí encontrarás quién soy, lo que sé hacer y cómo contactarme.
+          Usa las pestañas de arriba o las tarjetas de abajo para recorrer cada área.
+        </p>
+        <button type="button" class="boton boton--borde" id="btnMensaje">Cambiar mensaje</button>
+
+        <div class="bento">
+          <button type="button" class="bento__item bento__item--grande" data-ir="sobre-mi">
+            <small>Conóceme</small>
+            <b>Mi historia e intereses</b>
+            <em>Ver biografía →</em>
+          </button>
+          <button type="button" class="bento__item" data-ir="habilidades">
+            <small>Habilidades</small>
+            <b class="numero" data-cuenta="4">0</b>
+            <em>Ver mi tabla →</em>
+          </button>
+          <button type="button" class="bento__item" data-ir="sobre-mi">
+            <small>Intereses</small>
+            <b class="numero" data-cuenta="3">0</b>
+            <em>Descúbrelos →</em>
+          </button>
+          <button type="button" class="bento__item bento__item--grande bento__item--acento" data-ir="contacto">
+            <small>¿Hablamos?</small>
+            <b>Escríbeme un mensaje</b>
+            <em>Ir a contacto →</em>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4. PANEL: INFORMACIÓN PERSONAL -->
+      <section class="panel" id="sobre-mi">
+        <p class="panel__etiqueta">Biografía</p>
+        <h2>Sobre mí</h2>
+        <p>
+          Soy una persona curiosa que está aprendiendo a crear páginas web con HTML, CSS y JavaScript.
+          Me gusta resolver problemas paso a paso y ver cómo una idea se convierte en algo que se puede usar.
+          Vivo en Barahona y en mi tiempo libre disfruto de la música y los videojuegos.
+        </p>
+        <dl class="datos">
+          <div><dt>Ciudad</dt><dd>Barahona</dd></div>
+          <div><dt>Estudios</dt><dd>Desarrollo web</dd></div>
+          <div><dt>Idiomas</dt><dd>Español, inglés básico</dd></div>
+        </dl>
+
+        <h3>Mis intereses</h3>
+        <div class="chips">
+          <button type="button" class="chip" data-texto="La música me acompaña mientras estudio y programo.">Música</button>
+          <button type="button" class="chip" data-texto="Los videojuegos me enseñaron a resolver problemas y a no rendirme.">Videojuegos</button>
+          <button type="button" class="chip" data-texto="Cada día aprendo algo nuevo de HTML, CSS y JavaScript.">Programación</button>
+        </div>
+        <p class="chip-texto" id="textoInteres" aria-live="polite">Toca un interés para saber más.</p>
+      </section>
+
+      <!-- 5. PANEL: TABLA DE HABILIDADES -->
+      <section class="panel" id="habilidades">
+        <p class="panel__etiqueta">Lo que sé hacer</p>
+        <h2>Habilidades</h2>
+        <div class="tabla-contenedor">
+          <table>
+            <caption class="visualmente-oculto">Tabla de habilidades y nivel</caption>
+            <thead>
+              <tr><th scope="col">Habilidad</th><th scope="col">Nivel</th><th scope="col">Progreso</th></tr>
+            </thead>
+            <tbody>
+              <tr data-nivel="80"><td>HTML</td><td>Intermedio</td><td><div class="barra-nivel"><span></span></div></td></tr>
+              <tr data-nivel="65"><td>CSS</td><td>Intermedio</td><td><div class="barra-nivel"><span></span></div></td></tr>
+              <tr data-nivel="45"><td>JavaScript</td><td>Básico</td><td><div class="barra-nivel"><span></span></div></td></tr>
+              <tr data-nivel="70"><td>Trabajo en equipo</td><td>Intermedio</td><td><div class="barra-nivel"><span></span></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 6. PANEL: FORMULARIO DE CONTACTO + ENCUESTA -->
+      <section class="panel" id="contacto">
+        <p class="panel__etiqueta">Hablemos</p>
+        <h2>Contacto</h2>
+        <form id="formContacto" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name">
+            <small class="error" id="error-nombre"></small>
+          </div>
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" autocomplete="email">
+            <small class="error" id="error-correo"></small>
+          </div>
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" maxlength="300"></textarea>
+            <small class="contador" id="contador">0 / 300</small>
+            <small class="error" id="error-mensaje"></small>
+          </div>
+          <button type="submit" class="boton">Enviar mensaje</button>
+          <p class="resultado" id="resultado" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="encuesta">
+          <h3>¿Qué te parece mi página?</h3>
+          <div class="votos">
+            <button type="button" class="voto" data-voto="Me encanta">😍 Me encanta</button>
+            <button type="button" class="voto" data-voto="Está bien">🙂 Está bien</button>
+            <button type="button" class="voto" data-voto="Puede mejorar">🤔 Puede mejorar</button>
+          </div>
+          <p class="gracias-voto" id="graciasVoto" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <p>&copy; <span id="anio"></span> Raymin Missael Espinal Ramirez</p>
+    </footer>
+  </div>
+</div>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+<script src="Archivos.js"></script>
+</body>
+</html>
